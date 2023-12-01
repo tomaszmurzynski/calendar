@@ -1,3 +1,4 @@
+WERSJA TESTOWA dostępna na http://ecokorporacja.pl/calendar/index.php
 
 Zadanie testowe na rozmowę kwalifikacyjną dotyczącą zatrudnienia na stanowisko młodszego informatyka w Sekcji WWW Uniwersytetu Gdańskiego
 Kalendarz Wydarzeń
@@ -12,3 +13,4 @@ Opis zadania:
 3.	Funkcjonalność dodatkowa:
 3.1.	Dodawaj i edytuj wydarzenia bez konieczności przeładowania strony.
 
+WERSJA TESTOWA dostępna na http://ecokorporacja.pl/calendar/index.php
