@@ -1,0 +1,1 @@
+CREATE TABLE `calendar`.`event` (`id` INT(11) NOT NULL AUTO_INCREMENT , `title` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL , `start_event` DATETIME NOT NULL , `end_event` DATETIME NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
