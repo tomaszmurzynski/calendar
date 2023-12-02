@@ -36,14 +36,16 @@
     select: function(start, end, allDay)
     {
      var title = prompt("Enter Event Title");
-     if(title)
+     var desc = prompt("Enter event desc:");  
+     if(title && desc)
      {
+      
       var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
       var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
       $.ajax({
        url:"insert.php",
        type:"POST",
-       data:{title:title, start:start, end:end},
+       data:{title:title, start:start, end:end, desc:desc},
        success:function()
        {
         calendar.fullCalendar('refetchEvents');
