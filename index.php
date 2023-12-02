@@ -38,7 +38,7 @@
      var title = prompt("Enter Event Title");
      var desc = prompt("Enter event desc:");  
      var place =prompt("Enter event localization:");
-     if(title && desc)
+     if(title)
      {
       
       var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
