@@ -36,11 +36,10 @@
     select: function(start, end, allDay)
     {
      var title = prompt("Enter Event Title");
-     var desc = prompt("Enter event desc:");  
-     var place =prompt("Enter event localization:");
      if(title)
      {
-      
+      var desc = prompt("Enter event desc:");  
+      var place =prompt("Enter event localization:");
       var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
       var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
       $.ajax({
