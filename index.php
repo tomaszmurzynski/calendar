@@ -21,6 +21,8 @@
   $(document).ready(function() {
    //Init plugin
     var calendar = $('#calendar').fullCalendar({
+    //Set deflautView 
+    defaultView: 'agendaWeek',
     //Set edit option for TRUE
         editable:true,
     //Set header option
