@@ -33,14 +33,7 @@
     },
     //Set events option
     events: 'load.php',
-    eventRender: function(event, element) {
-    if(event.desc){
-        element.find('.fc-title').append("<br/>" + event.desc);
-    }
-    if(event.place){
-        element.find('.fc-title').append("<br/>" + event.place);
-    }
-    },
+    
     selectable:true,
     selectHelper:true,
     select: function(start, end, allDay)
@@ -116,6 +109,15 @@
        }
       })
      }
+    },
+
+    eventRender: function(event, element) {
+    if(event.desc){
+        element.find('.fc-title').append("<br/>" + event.desc);
+    }
+    if(event.place){
+        element.find('.fc-title').append("<br/>" + event.place);
+    }
     },
 
    });
