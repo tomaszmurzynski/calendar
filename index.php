@@ -14,7 +14,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
   <script>
    
@@ -33,7 +32,12 @@
     },
     //Set events option
     events: 'load.php',
-    
+    eventRender: function(event, element) {
+    if(event.desc || event.place){
+        element.find('.fc-title').append("<br/>" + event.desc);
+        element.find('.fc-title').append("<br/>" + event.place);
+    }
+    },
     selectable:true,
     selectHelper:true,
     select: function(start, end, allDay)
@@ -57,7 +61,6 @@
       })
      }
     },
-    editable:true,
     eventResize:function(event)
     {
      var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
@@ -110,16 +113,6 @@
       })
      }
     },
-
-    eventRender: function(event, element) {
-    if(event.desc){
-        element.find('.fc-title').append("<br/>" + event.desc);
-    }
-    if(event.place){
-        element.find('.fc-title').append("<br/>" + event.place);
-    }
-    },
-
    });
   });
    
