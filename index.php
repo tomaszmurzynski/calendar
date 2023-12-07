@@ -100,13 +100,38 @@
      });
     },
 
+
+
+    eventClick:function(event)
+    {
+     if(confirm("Are you sure you want to remove it?"))
+     {
+      var id = event.id;
+      $.ajax({
+       url:"delete.php",
+       type:"POST",
+       data:{id:id},
+       success:function()
+       {
+        calendar.fullCalendar('refetchEvents');
+        alert("Event Removed");
+       }
+      })
+     }
+    },
+
+
+
+
     eventClick:function(event)
 {
+    if(confirm("Are you want edit event?"))
+     {
   var title = prompt("Update Event Title", event.title);
   var desc = prompt("Update Event Description", event.desc);
   var place = prompt("Update Event Place", event.place);
 
-  if(title && desc && place)
+  if(title || desc || place)
   {
     var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
     var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
@@ -122,6 +147,22 @@
       }
     });
   }
+}else {
+if(confirm("Are you sure you want to remove it?"))
+     {
+      var id = event.id;
+      $.ajax({
+       url:"delete.php",
+       type:"POST",
+       data:{id:id},
+       success:function()
+       {
+        calendar.fullCalendar('refetchEvents');
+        alert("Event Removed");
+       }
+      })
+     }
+    }
 },
     
    });
