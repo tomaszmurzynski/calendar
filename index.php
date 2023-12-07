@@ -67,10 +67,12 @@
      var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
      var title = event.title;
      var id = event.id;
+     var place = event.place;
+     var desc = event.desc;
      $.ajax({
       url:"update.php",
       type:"POST",
-      data:{title:title, start:start, end:end, id:id},
+      data:{title:title, start:start, end:end, desc:desc, place:place, id:id},
       success:function(){
        calendar.fullCalendar('refetchEvents');
        alert('Event Update');
@@ -84,10 +86,12 @@
      var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
      var title = event.title;
      var id = event.id;
+     var place = event.place;
+     var desc = event.desc;
      $.ajax({
       url:"update.php",
       type:"POST",
-      data:{title:title, start:start, end:end, id:id},
+      data:{title:title, start:start, end:end, desc:desc, place:place, id:id},
       success:function()
       {
        calendar.fullCalendar('refetchEvents');
@@ -95,6 +99,8 @@
       }
      });
     },
+
+
 
     eventClick:function(event)
     {
@@ -113,6 +119,52 @@
       })
      }
     },
+
+
+
+
+    eventClick:function(event)
+{
+    if(confirm("Are you want edit event?"))
+     {
+  var title = prompt("Update Event Title", event.title);
+  var desc = prompt("Update Event Description", event.desc);
+  var place = prompt("Update Event Place", event.place);
+
+  if(title || desc || place)
+  {
+    var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+    var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
+    var id = event.id;
+    $.ajax({
+      url:"update.php",
+      type:"POST",
+      data:{title:title, desc:desc, place:place, start:start, end:end, id:id},
+      success:function()
+      {
+        calendar.fullCalendar('refetchEvents');
+        alert("Event Updated");
+      }
+    });
+  }
+}else {
+if(confirm("Are you sure you want to remove it?"))
+     {
+      var id = event.id;
+      $.ajax({
+       url:"delete.php",
+       type:"POST",
+       data:{id:id},
+       success:function()
+       {
+        calendar.fullCalendar('refetchEvents');
+        alert("Event Removed");
+       }
+      })
+     }
+    }
+},
+    
    });
   });
    
