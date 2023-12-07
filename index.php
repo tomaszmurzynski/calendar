@@ -98,24 +98,7 @@
 
     eventClick:function(event)
     {
-        if(confirm("Are you want edit event"))
-    {
-        var title = prompt("Enter Event Title", event.title);
-    
-        var desc = prompt("Enter event desc:", event.desc);  
-        var place =prompt("Enter event localization:", event.place);
-        $.ajax({
-            url:"update.php",
-            type:"POST",
-            data:{title:title, desc:desc, place:place, id:event.id},
-            success:function()
-            {
-                calendar.fullCalendar('refetchEvents');
-                alert("Event Updated");
-            }
-        })
-    } 
-        if(confirm("Are you sure you want to remove it?"))
+     if(confirm("Are you sure you want to remove it?"))
      {
       var id = event.id;
       $.ajax({
@@ -129,7 +112,6 @@
        }
       })
      }
-    
     },
    });
   });
