@@ -34,8 +34,8 @@
     events: 'load.php',
     eventRender: function(event, element) {
     if(event.desc || event.place){
-        element.find('.fc-title').append("<br/>" + event.desc);
-        element.find('.fc-title').append("<br/>" + event.place);
+        element.find('.fc-title').append("<br/> Desc: <br/>" + event.desc);
+        element.find('.fc-title').append("<br/> Place: <br/>" + event.place);
     }
     },
     selectable:true,
@@ -79,7 +79,6 @@
       }
      })
     },
-
     eventDrop:function(event)
     {
      var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
@@ -99,9 +98,6 @@
       }
      });
     },
-
-
-
     eventClick:function(event)
     {
      if(confirm("Are you sure you want to remove it?"))
@@ -119,10 +115,6 @@
       })
      }
     },
-
-
-
-
     eventClick:function(event)
 {
     if(confirm("Are you want edit event?"))
@@ -164,10 +156,8 @@ if(confirm("Are you sure you want to remove it?"))
      }
     }
 },
-    
    });
   });
-   
   </script>
  </head>
  <body>
